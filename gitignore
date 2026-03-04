@@ -1,5 +1,26 @@
+# IDE
 .idea/
+.vscode/
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Virtual Environments
 .venv/
 venv/
+env/
+ENV/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project-specific
+*.gif
+states_to_learn.csv
+data.txt
