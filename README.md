@@ -17,6 +17,7 @@ Currently, this repository includes the following projects:
 
 *   **Miles to Kilometer Converter** (`mile_to_kilo_convert/`): A simple GUI application built with Tkinter that converts miles to kilometers.
 *   **NATO Phonetic Alphabet** (`NATO-alphabet-start/`): A utility that converts words into NATO phonetic alphabet codes using a CSV dataset.
+*   **Quizzler App** (`quizzler-app-start/`): A GUI trivia quiz app that presents true/false questions, tracks the score, and displays feedback after each answer using Tkinter.
 
 ## Technologies Used
 
@@ -25,6 +26,26 @@ Currently, this repository includes the following projects:
     - `turtle`: Used for graphics in games and the U.S. States game
     - `tkinter`: Used for the GUI converter application
     - `pandas`: Used for data handling in the NATO alphabet and U.S. States game
+*   **Docker**: The repository includes a `Dockerfile` for running any project inside a container.
+
+## Running with Docker
+
+A `Dockerfile` is included to run any project inside a container without needing a local Python installation. By default it runs the Snake Game, but you can override the target project using environment variables.
+
+1. **Build the image**:
+    ```bash
+    docker build -t python-projects .
+    ```
+2. **Run the default project** (Snake Game):
+    ```bash
+    docker run -e DISPLAY=$DISPLAY python-projects
+    ```
+3. **Run a different project** by setting `GAME_DIR` and `GAME_FILE`:
+    ```bash
+    docker run -e GAME_DIR=quizzler-app-start -e GAME_FILE=main.py python-projects
+    ```
+
+> **Note**: GUI-based projects (turtle, Tkinter) require a display server (e.g., X11 on Linux/WSL or XQuartz on macOS) to be forwarded into the container.
 
 ## How to Run the Games
 
@@ -62,6 +83,8 @@ PycharmProjects/
 ├── us_states_game/
 ├── mile_to_kilo_convert/
 ├── NATO-alphabet-start/
+├── quizzler-app-start/
+├── Dockerfile
 ├── .gitignore
 └── README.md
 ```
